@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Encoder & Decoder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            width: 400px; /* Increase the width of the popup */
+            height: 500px; /* Increase the height of the popup */
+        }
+        .hidden {
+            display: none;
+        }
+        .section {
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #encodeButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #decodeButton {
+            background-color: #f44336;
+            color: white;
+        }
+        #backButton {
+            margin-top: 20px;
+            background-color: #555;
+            color: white;
+        }
+        input, select, img {
+            margin: 10px 0;
+            width: 100%;
+            padding: 8px;
+        }
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main page with Encode and Decode buttons -->
+    <div id="mainPage">
+        <h2>QR Encoder & Decoder</h2>
+        <button id="encodeButton">Encode</button>
+        <button id="decodeButton">Decode</button>
+    </div>
+
+    <!-- Encode form -->
+    <div id="encodeForm" class="hidden">
+        <h2>Generate QR Code</h2>
+        <div class="section">
+            <input type="text" id="dataInput" placeholder="Enter text or URL" required>
+            <input type="number" id="sizeInput" value="200" min="50" max="1000" placeholder="QR Code Size">
+            <input type="text" id="colorInput" value="black" placeholder="Foreground Color">
+            <input type="text" id="bgColorInput" value="white" placeholder="Background Color">
+            <select id="formatInput">
+                <option value="png">PNG</option>
+                <option value="jpeg">JPEG</option>
+            </select>
+            <input type="text" id="filenameInput" value="qr_code" placeholder="Filename">
+            <button id="generateButton">Generate</button>
+        </div>
+        <img id="qrImage" alt="Generated QR code will appear here">
+        <button id="saveButton" class="hidden">Save QR Code</button>
+        <button id="backButton">← Back</button>
+    </div>
+
+    <!-- Decode form -->
+    <div id="decodeForm" class="hidden">
+        <h2>Decode QR Code</h2>
+        <div class="section">
+            <input type="file" id="fileInput" accept="image/*">
+            <button id="decodeFileButton">Decode</button>
+        </div>
+        <p id="decodedText"></p>
+        <button id="backButtonDecode">← Back</button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

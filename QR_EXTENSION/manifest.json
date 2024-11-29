@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "QR Code Encoder & Decoder",
+    "version": "1.0",
+    "description": "Generate or decode QR codes easily.",
+    "permissions": ["activeTab", "storage"],
+    "host_permissions": ["http://127.0.0.1:8000/*"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icon.png"
+      }
+    }
+  }
+  
